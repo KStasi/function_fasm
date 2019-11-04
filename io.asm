@@ -215,7 +215,7 @@ start:
 .main_continue:
     idiv bx
 
-    jmp print
+    jmp .print
 .gr_nine:
     xor eax, eax
     mov ax, [x]
