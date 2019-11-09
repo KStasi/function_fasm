@@ -238,12 +238,13 @@ start:
 .otherwise:
     xor eax, eax
     mov ax, 1
+    xor dx, dx
 .print:
-    mov [result], ax
-    itoa [result], output_str
-
-    str_len output_str, len ; get string length
-    put_str output_str, [len] ; print string
+    mov [result1], ax
+    mov [result2], dx
+    print_num [result1]
+    put_str rest_str, 9 ; print string
+    print_num [result2]
     exit 0
 
     popa
@@ -261,6 +262,8 @@ len dw 0
 el dw 0
 input_str rb 11
 output_str rb 11
-result dw 0
+result1 dw 0
+result2 dw 0
 x dw 0
 y dw 0
+rest_str db "Rest is:", 0x0a, 0x00
